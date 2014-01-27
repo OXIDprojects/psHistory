@@ -1,0 +1,2 @@
+ALTER TABLE  `oxremark` CHANGE  `OXTYPE`  `OXTYPE` ENUM( 'o',  'r',  'n',  'c', 'psH' ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT  'r' COMMENT  'Record type: o - order, r - remark, n - nesletter, c - registration';
+ALTER TABLE  `oxremark` ADD  `pshistory_status` VARCHAR( 200 ) NOT NULL, ADD  `pshistory_userid` VARCHAR( 200 ) NOT NULL;
