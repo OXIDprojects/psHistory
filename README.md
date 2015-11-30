@@ -15,20 +15,23 @@ Features
 Installation
 
 	1. copy content from copy_this folder into your shop root
-	2. install sql (see below) and update views (shop admin --> service --> tools)
-	3. activate module psCmsSnippets in shop admin
-	4. configure status and signature in module settings
+	2. activate module psHistory in shop admin
+	3. configure status and signature in module settings
+	
+	Tip: Use ioly module manager [https://github.com/ioly/ioly/tree/connector-oxid] for installation.
 
-
-Install SQL
-
-	ALTER TABLE  `oxremark` CHANGE  `OXTYPE`  `OXTYPE` ENUM( 'o',  'r',  'n',  'c', 'psH' ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT  'r' COMMENT  'Record type: o - order, r - remark, n - nesletter, c - registration';
-	ALTER TABLE  `oxremark` ADD  `pshistory_status` VARCHAR( 200 ) NOT NULL, ADD  `pshistory_userid` VARCHAR( 200 ) NOT NULL;
 
 Screenshot
 
 ![psHistory](https://raw.github.com/proudcommerce/psHistory/master/screenshot.jpg)
 
+
+Changelog
+
+	30.11.2015	1.1.0	compatibility oxid 4.9, add auto-installer
+	27.01.2014	1.0.0	module release
+	
+	
 License
 
     This program is free software: you can redistribute it and/or modify
@@ -47,5 +50,6 @@ License
 
 Copyright
 
-	Proud Sourcing GmbH 2014
+	Proud Sourcing GmbH 2015
 	www.proudcommerce.com
+	www.proudsourcing.de

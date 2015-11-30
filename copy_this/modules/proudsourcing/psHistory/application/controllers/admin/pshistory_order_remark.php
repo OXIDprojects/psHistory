@@ -5,12 +5,11 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @copyright (c) Proud Sourcing GmbH | 2013
+ * @copyright (c) Proud Sourcing GmbH | 2015
  * @link www.proudcommerce.com
  * @package psHistory
- * @version 1.0.0
+ * @version 1.1.0
  **/
-
 class psHistory_Order_Remark extends psHistory_Order_Remark_parent
 {
     /**
@@ -25,7 +24,7 @@ class psHistory_Order_Remark extends psHistory_Order_Remark_parent
         parent::render();
 
         $soxId = $this->getEditObjectId();
-        $sRemoxId = oxConfig::getParameter( "rem_oxid");
+        $sRemoxId = oxRegistry::getConfig()->getRequestParameter( "rem_oxid");
         if ( $soxId != "-1" && isset( $soxId)) {
             $oOrder = oxNew( "oxorder" );
             $oOrder->load( $soxId);
@@ -84,17 +83,17 @@ class psHistory_Order_Remark extends psHistory_Order_Remark_parent
         $oOrder = oxNew( "oxorder" );
         if ( $oOrder->load( $this->getEditObjectId() ) ) {
             $oRemark = oxNew( "oxremark" );
-            $oRemark->load( oxConfig::getParameter( "rem_oxid" ) );
+            $oRemark->load( oxRegistry::getConfig()->getRequestParameter( "rem_oxid" ) );
 
             // psHistory | start
-            $sText = oxConfig::getParameter( "remarktext" );
-            $sStatus = oxConfig::getParameter( "pshistory_status" );
+            $sText = oxRegistry::getConfig()->getRequestParameter( "remarktext" );
+            $sStatus = oxRegistry::getConfig()->getRequestParameter( "pshistory_status" );
 
             // send mail?
-            if(oxConfig::getParameter( "pshistory_sendmail" ))
+            if(oxRegistry::getConfig()->getRequestParameter( "pshistory_sendmail" ))
             {
-                $sMailTo        = oxConfig::getParameter( "pshistory_mailto" );
-                $sMailSubject   = oxConfig::getParameter( "pshistory_subject" );
+                $sMailTo        = oxRegistry::getConfig()->getRequestParameter( "pshistory_mailto" );
+                $sMailSubject   = oxRegistry::getConfig()->getRequestParameter( "pshistory_subject" );
                 $sTextNew       = $sMailTo.' ('.$sMailSubject.')<br>';
                 $sTextNew      .= '<br>------------------------------------------------------------------------------------------------------------<br><br>';
                 $sTextNew      .= $sText;
@@ -102,11 +101,11 @@ class psHistory_Order_Remark extends psHistory_Order_Remark_parent
                 $oEmail = oxNew( 'oxemail' );
                 if ( $oEmail->sendEmail( $sMailTo, $sMailSubject, $sText ) )
                 {
-                    oxUtilsView::getInstance()->addErrorToDisplay( '<span style="color: green;">'.oxLang::getInstance()->translateString('PSHISTORY_ORDERREMARK_SENDMAIL_SUCCESS').'</span>' );
+                    oxRegistry::get("oxUtilsView")->addErrorToDisplay( '<span style="color: green;">'.oxRegistry::getLang()->translateString('PSHISTORY_ORDERREMARK_SENDMAIL_SUCCESS').'</span>' );
                 }
                 else
                 {
-                    oxUtilsView::getInstance()->addErrorToDisplay( oxLang::getInstance()->translateString('PSHISTORY_ORDERREMARK_SENDMAIL_ERROR') );
+                    oxRegistry::get("oxUtilsView")->addErrorToDisplay( oxRegistry::getLang()->translateString('PSHISTORY_ORDERREMARK_SENDMAIL_ERROR') );
                 }
 
                 $sText = $sTextNew;
@@ -118,7 +117,7 @@ class psHistory_Order_Remark extends psHistory_Order_Remark_parent
             $oRemark->oxremark__pshistory_userid = new oxField( $this->getUser()->getId() );
             // psHistory | end
 
-            $oRemark->oxremark__oxheader = new oxField( oxConfig::getParameter( "remarkheader" ) );
+            $oRemark->oxremark__oxheader = new oxField( oxRegistry::getConfig()->getRequestParameter( "remarkheader" ) );
             $oRemark->oxremark__oxparentid = new oxField( $oOrder->oxorder__oxuserid->value );
             $oRemark->save();
         }
