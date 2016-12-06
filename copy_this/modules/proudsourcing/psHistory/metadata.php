@@ -26,7 +26,7 @@ $aModule = array(
         'de' => 'Individuelle Stati f&uuml;r Bestellungen, sowie eMails aus dem Shop-Admin direkt an den Kunden senden.',
         'en' => 'Individual status information for orders / Sending mails directly from shop admin to customer',
     ),
-    'thumbnail'    => 'logo-ps.jpg',
+    'thumbnail'    => 'logo_pc-os.jpg',
     'version'      => '1.1.0',
     'author'       => 'Proud Sourcing GmbH',
     'url'          => 'http://www.proudcommerce.com',

@@ -2,7 +2,7 @@ psHistory
 =========
 
 Individual status information for orders. / Sending mails directly from shop admin to customer.
-Free Module for OXID eShop.
+Free module for OXID eshop 4.7, 4.8, 4.9 and 4.10.
 
 Features
 
@@ -50,6 +50,5 @@ License
 
 Copyright
 
-	Proud Sourcing GmbH 2015
-	www.proudcommerce.com
-	www.proudsourcing.de
+	Proud Sourcing GmbH 2016
+	www.proudcommerce.com / www.proudsourcing.de
