@@ -11,26 +11,21 @@ Features
 	- use your deposited signature for emails
 	- preselected subject for emails (ordernumber, status)
 
-
 Installation
 
 	1. copy content from copy_this folder into your shop root
 	2. activate module psHistory in shop admin
 	3. configure status and signature in module settings
 	
-	Tip: Use ioly module manager [https://github.com/ioly/ioly/tree/connector-oxid] for installation.
-
+Tip: Use the [OXID module connector](https://github.com/OXIDprojects/OXID-Module-Connector) to install this module.
 
 Screenshot
-
 ![psHistory](https://raw.github.com/proudcommerce/psHistory/master/screenshot.jpg)
-
 
 Changelog
 
-	30.11.2015	1.1.0	compatibility oxid 4.9, add auto-installer
-	27.01.2014	1.0.0	module release
-	
+	2015-11-30	1.1.0	compatibility oxid 4.9, add auto-installer
+	2014-01-27	1.0.0	module release
 	
 License
 
@@ -46,7 +41,6 @@ License
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
 
 Copyright
 
